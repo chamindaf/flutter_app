@@ -51,10 +51,12 @@ jobs:
       - id: 'deploy'
         uses: 'google-github-actions/deploy-cloudrun@v2'
         with:
-          project_id: ${{ secrets.GOOGLE_PROJECT }}
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
           service: 'lb-flutter-app'
+          REPO: cicdtest
           image: 'us-central1-docker.pkg.dev/$GOOGLE_PROJECT/$REPO/$IMAGE_NAME:latest'
           region: 'us-central1'
+          port: 80
 
       #- name: Build & push Docker image
       #  uses: mr-smithers-excellent/docker-build-push@v5
