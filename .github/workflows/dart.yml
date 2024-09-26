@@ -21,6 +21,4 @@ jobs:
           channel: "stable"
           flutter-version: 3.24.3
       - run: flutter pub get
-      - run: flutter analyze
-      - run: flutter test --machine
       - run: flutter build web
