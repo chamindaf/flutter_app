@@ -59,13 +59,13 @@ jobs:
          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
          run: |
           gcloud auth configure-docker us-central1-docker.pkg.dev
-          docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/cicdtest/nginx:latest .
-          docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/cicdtest/nginx:latest
+          docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/cicdtest/testx:latest .
+          docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/cicdtest/testx:latest
         
-        run: |-
-            docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
-            # docker push us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/test123:latest
-            docker push  us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
+       # run: |-
+       #     docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
+       #     # docker push us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/test123:latest
+        #    docker push  us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
 
 
            
