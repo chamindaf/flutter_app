@@ -46,15 +46,21 @@ jobs:
       #    username: ${{ secrets.DOCKER_USERNAME }}
       #    password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker Image
-        run: docker build -t $IMAGE_NAME:latest .
+      #- name: Build Docker Image
+      #  run: docker build -t $IMAGE_NAME:latest .
 
-      - name: Configure Docker Client
-        run: |-
-          gcloud auth configure-docker --quiet
-          gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+     # - name: Configure Docker Client
+    #    run: |-
+     #     gcloud auth configure-docker --quiet
+     #     gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
           
       - name: Push Docker Image to Artifact Registry
+        env:
+         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
+         run: |
+          gcloud auth configure-docker us-central1-docker.pkg.dev
+          docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/cicdtest/nginx:latest .
+          docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/cicdtest/nginx:latest
         
         run: |-
             docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
