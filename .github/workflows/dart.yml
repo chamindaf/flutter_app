@@ -12,7 +12,7 @@ jobs:
     env:
       IMAGE_NAME: lesson-087
       PROJECT_ID: flutterflow-lion-poc
-      GIT_TAG: $COMMIT_SHA
+      GIT_TAG: testTag
 
     steps:
       - uses: actions/checkout@v1
