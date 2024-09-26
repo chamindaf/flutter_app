@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: lesson-087
+      IMAGE_NAME: test
       PROJECT_ID: flutterflow-lion-poc
       GIT_TAG: testTag
 
@@ -59,7 +59,7 @@ jobs:
         run: |-
             # docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
             # docker push us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
-            docker push  us-central1-docker.pkg.dev/flutterflow-lion-poc/cloud-run-source-deploy/$REPO_NAME/IMAGE_NAME:$COMMIT_SHA
+            docker push  us-central1-docker.pkg.dev/flutterflow-lion-poc/cloud-run-source-deploy/$REPO_NAME/$IMAGE_NAME:$COMMIT_SHA
 
 
            
