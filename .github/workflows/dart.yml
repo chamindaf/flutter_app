@@ -37,6 +37,14 @@ jobs:
       - run: flutter pub get
       - run: flutter build web
 
+      - name: build and push the docker image
+        env:
+         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
+        run: |
+         gcloud auth configure-docker us-central1-docker.pkg.dev
+         docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/cicdtest/testx:latest .
+         docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/cicdtest/testx:latest
+
       #- name: Build & push Docker image
       #  uses: mr-smithers-excellent/docker-build-push@v5
       #   with:
