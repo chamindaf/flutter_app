@@ -57,9 +57,9 @@ jobs:
       - name: Push Docker Image to Artifact Registry
         
         run: |-
-            docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
-            # docker push us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
-            docker push  us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
+            docker tag test123:latest us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/test123:latest
+            # docker push us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/test123:latest
+            docker push  us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/test132:latest
 
 
            
