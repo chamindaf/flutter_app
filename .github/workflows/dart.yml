@@ -16,9 +16,10 @@ jobs:
         with:
           java-version: "12.x"
       - name: Flutter action
-        uses: subosito/flutter-action@v3.24.3
+        uses: subosito/flutter-action@v2
         with:
           channel: "stable"
+          flutter-version: 3.19.0
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test --machine
