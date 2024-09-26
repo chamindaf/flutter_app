@@ -20,11 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - uses: google-github-actions/setup-gcloud@main
-        with:
-          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-          project_id: ${{ env.PROJECT_ID }}
-          export_default_credentials: true
+     # - uses: google-github-actions/setup-gcloud@main
+    #    with:
+     #     service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+     #     project_id: ${{ env.PROJECT_ID }}
+     #     export_default_credentials: true
         
       - uses: actions/setup-java@v1
         with:
@@ -36,6 +36,15 @@ jobs:
           flutter-version: 3.24.3
       - run: flutter pub get
       - run: flutter build web
+      
+      - name: install the gcloud cli
+        uses: google-github-actions/setup-gcloud@v0
+        with:
+          project_id: ${{ secrets.GOOGLE_PROJECT }}
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          install_components: 'gke-gcloud-auth-plugin'
+          export_default_credentials: true
+
 
       - name: build and push the docker image
         env:
