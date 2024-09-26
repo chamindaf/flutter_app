@@ -57,7 +57,7 @@ jobs:
       - name: Push Docker Image to Artifact Registry
         
         run: |-
-            docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
+            # docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
             # docker push us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/$IMAGE_NAME:latest
             docker push  us-central1-docker.pkg.dev/flutterflow-lion-poc/cloud-run-source-deploy/$REPO_NAME/IMAGE_NAME:$COMMIT_SHA
 
