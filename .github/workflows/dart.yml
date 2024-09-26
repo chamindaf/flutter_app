@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: test
+      IMAGE_NAME: lb-python-app
       PROJECT_ID: flutterflow-lion-poc
       GIT_TAG: testTag
 
@@ -54,7 +54,7 @@ jobs:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
           service: 'lb-flutter-app'
           REPO: cicdtest
-          image: 'us-central1-docker.pkg.dev/$GOOGLE_PROJECT/$REPO/$IMAGE_NAME:latest'
+          image: 'us-central1-docker.pkg.dev/flutterflow-lion-poc/cicdtest/lb-python-app:latest'
           region: 'us-central1'
           port: 80
 
